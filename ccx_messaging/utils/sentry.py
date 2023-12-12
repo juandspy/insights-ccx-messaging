@@ -23,7 +23,7 @@ from sentry_sdk.integrations.logging import LoggingIntegration
 
 def get_event_level():
     """Get level of events to monitor (errors only, or error and warnings)."""
-    if os.environ.get("SENTRY_CATCH_WARNINGS", False):
+    if os.environ.get("SENTRY_CATCH_WARNINGS", False) in ["True", "true", "1", "yes", "Yes"]:
         return logging.WARNING
     return logging.ERROR
 
